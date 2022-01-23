@@ -1,3 +1,5 @@
+
+// Import necessary modules
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,23 +12,24 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 public class Main implements ActionListener {
+
+    // Class wide variables
     JScrollPane scrlpane;
-    ArrayList<JPanel> items = new ArrayList<JPanel>();
+
     JPanel masterPanel = new JPanel();
     JFrame masterFrame;
     JScrollPane jScrollPane;
-    int uniqueItems;
 
+    // Program Entry Point.
     public static void main(String args[]) {
         new Main();
     }
 
     public Main() {
         // Init the frame
-        JFrame frame = new JFrame("Tabbed Pane Sample");
+        JFrame frame = new JFrame("Inventory Manager");
         masterFrame = frame;
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -47,8 +50,9 @@ public class Main implements ActionListener {
                 masterPanel.repaint();
             }
         });
+
+        // Layout all elements on JFrame.
         masterFrame.add(deleteAll, BorderLayout.SOUTH);
-        // to stores the ratings (1 stat, 2 star, etc)
 
         masterFrame.add(newItemBtn, BorderLayout.NORTH);
 
@@ -62,6 +66,7 @@ public class Main implements ActionListener {
         masterFrame.setVisible(true);
     }
 
+    // Fires when addItem button is pressed.
     public void actionPerformed(ActionEvent e) {
 
         this.update();
@@ -69,20 +74,17 @@ public class Main implements ActionListener {
 
     public void update() {
 
-        uniqueItems += 1;
-
+        // Uses the item class to make a panel that will be added to the scrollable
+        // window.
         Item item = new Item();
         item.getInfo(masterFrame);
 
         masterPanel.add(item.makepanel(masterPanel));
-        // masterFrame.getContentPane().add(scrlpane, BorderLayout.CENTER);
+
         masterPanel.setLayout(new BoxLayout(masterPanel, BoxLayout.PAGE_AXIS));
 
         scrlpane = new JScrollPane(masterPanel);
         jScrollPane.getViewport().add(scrlpane, BorderLayout.CENTER);
 
-        // masterFrame.revalidate();
-        // masterFrame.repaint();
-        // masterFrame.setVisible(true);
     }
 }
