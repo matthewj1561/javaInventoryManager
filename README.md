@@ -4,7 +4,7 @@ This project is a rudimentary inventory management system made in the Java progr
 The program allows a user to add and delete named items with a specified quantity of said item.
 User can then modify the amount of any item that has been entered as well as wipe everything or delete individual items.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/Gmc5UUy6e90)
 
 # Development Environment
 
