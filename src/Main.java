@@ -74,7 +74,7 @@ public class Main implements ActionListener {
         Item item = new Item();
         item.getInfo(masterFrame);
 
-        masterPanel.add(item.makepanel());
+        masterPanel.add(item.makepanel(masterPanel));
         // masterFrame.getContentPane().add(scrlpane, BorderLayout.CENTER);
         masterPanel.setLayout(new BoxLayout(masterPanel, BoxLayout.PAGE_AXIS));
 

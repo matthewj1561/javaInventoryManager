@@ -13,8 +13,9 @@ public class Item extends JPanel {
 
     }
 
-    public JPanel makepanel() {
+    public JPanel makepanel(JPanel masterPanel) {
         JPanel panel = new JPanel();
+        JLabel count;
 
         // panel.setLayout(new BoxLayout(panel, 0));
         panel.setLayout(new GridLayout());
@@ -22,7 +23,8 @@ public class Item extends JPanel {
         panel.add(new JLabel("Item Name: "));
         panel.add(new JLabel(s1));
         panel.add(new JLabel("Item Quantity: "));
-        panel.add(new JLabel(s2));
+        count = new JLabel(s2);
+        panel.add(count);
         panel.setBorder(new EmptyBorder(new Insets(15, 15, 15, 15)));
         JButton delete = new JButton("Delete");
         delete.addActionListener(new ActionListener() {
@@ -33,13 +35,20 @@ public class Item extends JPanel {
         JButton plus1 = new JButton("+1");
         plus1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("jksjfds");
+                int amount = Integer.parseInt(s2);
+                amount += 1;
+                s2 = String.valueOf(amount);
+                count.setText(s2);
+
             }
         });
         JButton minus1 = new JButton("-1");
         minus1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                System.out.println("jksjfds");
+                int amount = Integer.parseInt(s2);
+                amount -= 1;
+                s2 = String.valueOf(amount);
+                count.setText(s2);
             }
         });
 
@@ -57,7 +66,7 @@ public class Item extends JPanel {
 
         JButton b = new JButton("OK");
         t1 = new JTextField("Product Name");
-        t2 = new JTextField("Quantity");
+        t2 = new JTextField("1");
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 s1 = t1.getText();
